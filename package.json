@@ -5,10 +5,13 @@
   "description": "Minecraft Server List auto bumper.",
   "keywords": [
     "minecraft",
+    "mc"
     "server",
     "list",
     "auto",
-    "bumper"
+    "bumper",
+    "bump",
+    "auto-bumper"
   ],
   "license": "MIT",
   "main": "app.js",
