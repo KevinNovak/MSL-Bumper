@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer-example",
+  "version": "1.0.0",
+  "description": "Puppeteer example.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Kevin Novak",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "1.3.0"
+  }
+}
