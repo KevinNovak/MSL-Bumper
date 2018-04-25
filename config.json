@@ -1,0 +1,12 @@
+{
+    "bumpEnabled": false,
+    "hideBrowser": false,
+    "username": "Username",
+    "password": "Password",
+    "serverId": "123456",
+    "randomDelays": {
+        "enabled": true,
+        "minDelay": 1,
+        "maxDelay": 5
+    }
+}

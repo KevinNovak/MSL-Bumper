@@ -1,14 +1,20 @@
 {
-  "name": "puppeteer-example",
+  "author": "Kevin Novak",
+  "name": "msl-bumper",
   "version": "1.0.0",
-  "description": "Puppeteer example.",
+  "description": "Minecraft Server List auto bumper.",
+  "keywords": [
+    "minecraft",
+    "server",
+    "list",
+    "auto",
+    "bumper"
+  ],
+  "license": "MIT",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [],
-  "author": "Kevin Novak",
-  "license": "MIT",
   "dependencies": {
     "puppeteer": "1.3.0"
   }
