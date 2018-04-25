@@ -1,3 +1,9 @@
+# Custom directories
+.vscode/
+
+# Custom files
+TODO.txt
+
 # Logs
 logs
 *.log
