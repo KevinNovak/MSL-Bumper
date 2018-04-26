@@ -5,6 +5,7 @@
 * Node.js
     * [Install files can be found here](https://nodejs.org/en/download/).
 * Git
+    * [Install files can be found here](https://git-scm.com/downloads).
 
 ## Getting Started
 1. Clone this repository:
@@ -15,12 +16,9 @@
     * **bumpEnabled**:
         * Actually bump the server?
             * Set to "true" or "false".
-            * Set to "false" if you want to do a test run.
-            * Set to "true" if you want to bump your server.
     * **hideBrowser**:
         * Should the browser be hidden?
             * Set to "true" or "false".
-            * If "true", no browser window will appear when ran.
     * **username**:
         * Your minecraft-server-list.com username.
     * **password**:
@@ -34,7 +32,6 @@
         * **enabled**:
             * Whether or not this script should wait a random amount of time between actions.
                 * Set to "true" or "false".
-            * For example, waiting X seconds after logging in.
             * Recommended to leave enabled.
         * **minDelay**:
             * The minimum amount of time in seconds to wait.
