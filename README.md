@@ -39,8 +39,8 @@
             * The maximum amount of time in seconds to wait.
 3. Start with ```npm start```
 
-## Warning
-
+## Disclaimer
+Running automated scripts like this one is often against a websites terms and conditions. Ultimately you are the one responsible for knowing the terms and conditions, and for what you do with this script. Run at your own risk.
 
 ## References
 * [Puppeteer](https://developers.google.com/web/tools/puppeteer/) by [Google](https://developers.google.com/) - Automate browser tasks in Chrome or Chromium.
