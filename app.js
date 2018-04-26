@@ -53,12 +53,8 @@ async function bumpServer() {
 async function delay(page) {
     if (randomDelaysEnabled) {
         const delay = generateRandomDelay();
-        console.log(`Waiting ${delay/1000} seconds.`);
-        await page.waitFor(delay).then((result) => {
-            console.log('Done waiting.');
-        }).catch((error) => {
-            console.error(error);
-        });
+        console.log(`Waiting ${delay/1000} seconds...`);
+        await page.waitFor(delay);
     }
 }
 
