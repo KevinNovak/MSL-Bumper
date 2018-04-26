@@ -5,6 +5,8 @@ const randomDelaysEnabled = config.randomDelays.enabled;
 const minDelay = config.randomDelays.minDelay * 1000;
 const maxDelay = config.randomDelays.maxDelay * 1000;
 
+const baseUrl = 'https://minecraft-server-list.com/';
+
 async function bumpServer() {
     // Open browser
     const browser = await puppeteer.launch({
@@ -13,7 +15,7 @@ async function bumpServer() {
     const page = await browser.newPage();
 
     // Login
-    await page.goto('https://minecraft-server-list.com/login/login.php');
+    await page.goto(baseUrl + 'login/login.php');
     await page.type(`input[name='username']`, config.username);
     await page.type(`input[name='password']`, config.password);
     await delay(page);
@@ -22,7 +24,7 @@ async function bumpServer() {
     await delay(page);
 
     // Bump server
-    await page.goto(`http://minecraft-server-list.com/login/edit_server.php?server_id=${config.serverId}`);
+    await page.goto(baseUrl + `login/edit_server.php?server_id=${config.serverId}`);
     await delay(page);
     if (config.bumpEnabled) {
         await page.evaluate(saveServer());
@@ -30,7 +32,7 @@ async function bumpServer() {
     }
 
     // Logout
-    await page.goto('https://minecraft-server-list.com/login/logout.php');
+    await page.goto(baseUrl + 'login/logout.php');
 
     // Close browser
     await browser.close();
