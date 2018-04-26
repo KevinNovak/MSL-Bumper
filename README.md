@@ -8,11 +8,11 @@
     * [Install files can be found here](https://git-scm.com/downloads).
 
 ## Getting Started
-1. Clone this repository:
+1. Clone this repository.
     * Run ```git clone https://github.com/KevinNovak/MSL-Bumper.git```.
 2. Navigate to the cloned repository and install the required packages.
     * Run ```npm install```.
-2. Modify ```config.json```:
+2. Modify ```config.json```.
     * **bumpEnabled**:
         * Actually bump the server?
             * Set to ```true``` or ```false```.
@@ -38,7 +38,7 @@
             * The minimum amount of time in seconds to wait.
         * **maxDelay**:
             * The maximum amount of time in seconds to wait.
-3. Start with ```npm start```
+3. Start with ```npm start```.
 
 ## Disclaimer
 Running automated scripts like this one is often against a websites terms and conditions. Ultimately you are the one responsible for knowing the terms and conditions, and for what you do with this script. Run at your own risk.
