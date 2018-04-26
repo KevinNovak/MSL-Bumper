@@ -32,7 +32,7 @@
                 * In this example "**123456**" is the server ID.
     * **randomDelays**:
         * **enabled**:
-            * Whether of not this script should wait a random amount of time between actions.
+            * Whether or not this script should wait a random amount of time between actions.
                 * Set to "true" or "false".
             * For example, waiting X seconds after logging in.
             * Recommended to leave enabled.
