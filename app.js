@@ -77,4 +77,10 @@ function generateRandomDelay() {
     return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
 }
 
-bumpServer();
+if (!module.parent) {
+    bumpServer();
+}
+
+module.exports = {
+    bumpServer
+};
