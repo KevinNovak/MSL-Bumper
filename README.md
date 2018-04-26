@@ -15,23 +15,23 @@
 2. Modify ```config.json```:
     * **bumpEnabled**:
         * Actually bump the server?
-            * Set to "true" or "false".
+            * Set to ```true``` or ```false```.
     * **hideBrowser**:
         * Should the browser window be hidden?
-            * Set to "true" or "false".
+            * Set to ```true``` or ```false```.
     * **username**:
-        * Your minecraft-server-list.com username.
+        * Your **minecraft-server-list.com** username.
     * **password**:
-        * Your minecraft-server-list.com password.
+        * Your **minecraft-server-list.com** password.
     * **serverId**:
-        * Your minecraft-server-list.com server ID.
-        * This can be found in the URL of your servers page on minecraft-server-list.com.
-            *  For example, your servers page URL might be "http://minecraft-server-list.com/server/123456/".
-                * In this example "**123456**" is the server ID.
+        * Your **minecraft-server-list.com** server ID.
+        * This can be found in the URL of your servers page on **minecraft-server-list.com**.
+            *  For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
+                * In this example ```"123456"``` is the server ID.
     * **randomDelays**:
         * **enabled**:
             * Whether or not this script should wait a random amount of time between actions.
-                * Set to "true" or "false".
+                * Set to ```true``` or ```false```.
             * Recommended to leave enabled.
         * **minDelay**:
             * The minimum amount of time in seconds to wait.
