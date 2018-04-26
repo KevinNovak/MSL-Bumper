@@ -26,6 +26,17 @@ async function bumpServer() {
     console.log('Logging in...');
     await page.click(`[name='Submit']`);
     await page.waitForNavigation();
+
+    // Check if login failed
+    const success = await page.evaluate(() => {
+        return document.getElementsByClassName('errormsg').length === 0;
+    });
+    if (!success) {
+        console.error('Login failed. Please check if the username and password are correct.');
+        await closeBrowser(browser);
+        return;
+    }
+
     await delay(page);
 
     // Nagivate to "Edit Server" page
@@ -46,6 +57,10 @@ async function bumpServer() {
     await delay(page);
 
     // Close browser
+    await closeBrowser(browser);
+}
+
+async function closeBrowser(browser) {
     console.log('Closing browser...');
     await browser.close();
 }
