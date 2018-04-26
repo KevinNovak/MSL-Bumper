@@ -1,5 +1,5 @@
 {
-    "bumpEnabled": false,
+    "bumpEnabled": true,
     "hideBrowser": false,
     "username": "Username",
     "password": "Password",
