@@ -17,7 +17,7 @@
         * Actually bump the server?
             * Set to "true" or "false".
     * **hideBrowser**:
-        * Should the browser be hidden?
+        * Should the browser window be hidden?
             * Set to "true" or "false".
     * **username**:
         * Your minecraft-server-list.com username.
