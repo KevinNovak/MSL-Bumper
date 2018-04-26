@@ -16,6 +16,7 @@
     * **bumpEnabled**:
         * Actually bump the server?
             * Set to ```true``` or ```false```.
+                * If ```false```, will run all actions except the actual bump, useful for testing.
     * **hideBrowser**:
         * Should the browser window be hidden?
             * Set to ```true``` or ```false```.
