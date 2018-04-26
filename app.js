@@ -33,6 +33,7 @@ async function bumpServer() {
 
     // Logout
     await page.goto(baseUrl + 'login/logout.php');
+    await delay(page);
 
     // Close browser
     await browser.close();
