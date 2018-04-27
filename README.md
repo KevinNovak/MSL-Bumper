@@ -42,7 +42,8 @@
         * **cronExpression**:
             * Defines when the bump script should be ran.
             * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html).
-                * ***Note: The only special characters allowed are ```- * /```, contrary to the above documentation. See [this page](https://github.com/kelektiv/node-cron#available-cron-patterns) for more accurate information on allowed values (albeit worse documentation).***
+                * ***NOTE***: The only special characters allowed are ```- * /```, contrary to the above documentation. See [this page](https://github.com/kelektiv/node-cron#available-cron-patterns) for more accurate information on allowed values (albeit worse documentation).
+            * Defaults to every day at noon.
         * **timezone**:
             * The timezone on which to run the script.
             * Refer to [this page](https://momentjs.com/timezone/) to determine your timezone.
@@ -55,6 +56,7 @@
                 * The minimum amount of time in seconds to wait.
             * **maxDelay**:
                 * The maximum amount of time in seconds to wait.
+                * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
 3. Start with ```npm start```.
 
 ## Running on a Schedule
