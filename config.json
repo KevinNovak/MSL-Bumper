@@ -11,6 +11,7 @@
     },
     "schedule": {
         "cronExpression": "* * * * * *",
+        "timezone": "America/Los_Angeles",
         "delay": {
             "enabled": true,
             "minDelay": 0,
