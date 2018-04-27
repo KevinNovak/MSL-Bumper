@@ -64,6 +64,9 @@ There are 3 main ways you can run this script on a schedule:
 1. Built-in scheduler:
     * Simply run ```npm run schedule```.
     * The **recommended** and probably easiest method.
+    * Commands:
+        * View logs with ```pm2 logs msl-bumper```.
+        * Stop with ```pm2 stop msl-bumper```. 
 2. Running the Node.js script through a custom scheduler:
     * Setup a custom scheduler of your choice to run ```node app.js``` or ```npm start```.
     * Some helpful resources:
