@@ -2,7 +2,7 @@
   "author": "Kevin Novak",
   "name": "msl-bumper",
   "version": "1.0.0",
-  "description": "Minecraft Server List auto-bumper.",
+  "description": "Auto-bump your Minecraft server on minecraft-server-list.com.",
   "keywords": [
     "minecraft",
     "mc",
