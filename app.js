@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
 const config = require('./config.json');
 
-const randomDelaysEnabled = config.randomDelays.enabled;
-const minDelay = config.randomDelays.minDelay * 1000;
-const maxDelay = config.randomDelays.maxDelay * 1000;
+const actionDelaysEnabled = config.actionDelays.enabled;
+const minDelay = config.actionDelays.minDelay * 1000;
+const maxDelay = config.actionDelays.maxDelay * 1000;
 
 const baseUrl = 'https://minecraft-server-list.com/';
 
@@ -66,7 +66,7 @@ async function closeBrowser(browser) {
 }
 
 async function delay(page) {
-    if (randomDelaysEnabled) {
+    if (actionDelaysEnabled) {
         const delay = generateRandomDelay();
         console.log(`Waiting ${delay/1000} seconds...`);
         await page.waitFor(delay);

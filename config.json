@@ -4,9 +4,17 @@
     "username": "Username",
     "password": "Password",
     "serverId": "123456",
-    "randomDelays": {
+    "actionDelays": {
         "enabled": true,
         "minDelay": 1,
         "maxDelay": 5
+    },
+    "schedule": {
+        "cronExpression": "* * * * * *",
+        "delay": {
+            "enabled": true,
+            "minDelay": 0,
+            "maxDelay": 3600
+        }
     }
 }
