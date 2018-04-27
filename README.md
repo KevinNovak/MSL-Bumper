@@ -29,7 +29,7 @@
         * This can be found in the URL of your servers page on **minecraft-server-list.com**.
             *  For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
                 * In this example ```"123456"``` is the server ID.
-    * **randomDelays**:
+    * **actionDelays**:
         * **enabled**:
             * Whether or not this script should wait a random amount of time between actions.
                 * Set to ```true``` or ```false```.
@@ -38,6 +38,23 @@
             * The minimum amount of time in seconds to wait.
         * **maxDelay**:
             * The maximum amount of time in seconds to wait.
+    * **schedule**:
+        * **cronExpression**:
+            * Defines when the bump script should be ran.
+            * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html).
+                * ***Note: The only special characters allowed are ```- * /```, contrary to the above documentation. See [this page](https://github.com/kelektiv/node-cron#available-cron-patterns) for more accurate information on allowed values (albeit worse documentation).***
+        * **timezone**:
+            * The timezone on which to run the script.
+            * Refer to [this page](https://momentjs.com/timezone/) to determine your timezone.
+        * **delay**:
+            * **enabled**:
+                * Whether or not to wait a random amount of time after the scheduled time comes.
+                    * Set to ```true``` or ```false```.
+                * Recommended to leave enabled.
+            * **minDelay**:
+                * The minimum amount of time in seconds to wait.
+            * **maxDelay**:
+                * The maximum amount of time in seconds to wait.
 3. Start with ```npm start```.
 
 ## Running on a Schedule
