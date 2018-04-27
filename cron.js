@@ -22,7 +22,7 @@ var job = new cron.CronJob(config.schedule.cronExpression, () => {
 
 function runScript() {
     log('Running the script...');
-    // app.bumpServer();
+    app.bumpServer();
 }
 
 function log(message) {
