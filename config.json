@@ -10,7 +10,7 @@
         "maxDelay": 5
     },
     "schedule": {
-        "cronExpression": "0 0 12 * * ?",
+        "cronExpression": "0 0 12 * * *",
         "timezone": "America/Los_Angeles",
         "delay": {
             "enabled": true,
