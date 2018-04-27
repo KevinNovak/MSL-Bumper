@@ -11,7 +11,7 @@ log('Started the built-in scheduler. Script will now run according to the config
 var job = new cron.CronJob(config.schedule.cronExpression, () => {
     if (delayEnabled) {
         const delay = generateRandomDelay();
-        console.log(`Waiting ${delay/1000} seconds...`);
+        log(`Waiting ${delay/1000} seconds...`);
         setTimeout(() => {
             runScript();
         }, delay);
