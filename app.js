@@ -30,10 +30,8 @@ async function bumpServer() {
     await page.waitForNavigation();
 
     // Check if login failed
-    const success = await page.evaluate(() => {
-        return document.getElementsByClassName('errormsg').length === 0;
-    });
-    if (!success) {
+    const url = await page.url();
+    if (!url.includes('dashboard')) {
         logger.log('Login failed. Please check if the username and password are correct.');
         await closeBrowser(browser);
         return;
@@ -44,6 +42,17 @@ async function bumpServer() {
     // Nagivate to "Edit Server" page
     logger.log('Navigating to "Edit Server" page...');
     await page.goto(baseUrl + `login/edit_server.php?server_id=${config.serverId}`);
+
+    // Check if editing is allowed
+    const success = await page.evaluate(() => {
+        return document.getElementsByClassName('errormsg').length === 0;
+    });
+    if (!success) {
+        logger.log('Editing failed. Please check if the server ID is correct.');
+        await closeBrowser(browser);
+        return;
+    }
+    
     await delay(page);
 
     // Bump server
