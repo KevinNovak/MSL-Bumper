@@ -83,4 +83,4 @@ Running automated scripts like this one is often against a websites terms and co
 
 ## References
 * [Puppeteer](https://developers.google.com/web/tools/puppeteer/) by [Google](https://developers.google.com/) - Automate browser tasks in Chrome or Chromium.
-* [node-cron](https://github.com/kelektiv/node-cron) by [Nick Campbell](https://github.com/ncb000gt) - Schedule jobs to run with Node.js.
+* [Node Schedule](https://github.com/node-schedule/node-schedule) by [Tejas Manohar](https://tejas.io/) & [Santiago Gimeno](https://github.com/santigimeno) - Schedule jobs to run with Node.js.
