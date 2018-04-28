@@ -17,7 +17,6 @@ async function bumpServer() {
     });
     browser.on('disconnected', async () => {
         logger.log('Browser disconnected.');
-        closeBrowser(this);
         process.exit();
     });
 
