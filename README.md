@@ -45,6 +45,7 @@
                 * There are also examples and a cron expression generator.
                 * ***NOTE***: Does not support every format. See [this page](https://github.com/harrisiirak/cron-parser#supported-format) for details.
             * Defaults to every day at 9am, 3pm, and 9pm.
+                * With a 0 to 2 hour delay, see ```delay``` below.
         * **delay**:
             * **enabled**:
                 * Whether or not to wait a random amount of time after the scheduled time comes.

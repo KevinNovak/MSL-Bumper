@@ -14,7 +14,7 @@
         "delay": {
             "enabled": true,
             "minDelay": 0,
-            "maxDelay": 3600
+            "maxDelay": 7200
         }
     }
 }
