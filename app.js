@@ -15,6 +15,12 @@ async function bumpServer() {
     const browser = await puppeteer.launch({
         headless: config.hideBrowser
     });
+    browser.on('disconnected', async () => {
+        logger.log('Browser disconnected.');
+        closeBrowser(this);
+        process.exit();
+    });
+
     const page = await browser.newPage();
 
     // Input username and password
@@ -52,7 +58,7 @@ async function bumpServer() {
         await closeBrowser(browser);
         return;
     }
-    
+
     await delay(page);
 
     // Bump server
@@ -96,3 +102,7 @@ if (!module.parent) {
 module.exports = {
     bumpServer
 };
+
+process.on('unhandledRejection', (reason, promise) => {
+    logger.error('Error: Unhandled rejection.');
+});
