@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const timer = require('./timer');
 const logger = require('./logger');
 const config = require('./config.json');
 
@@ -69,7 +70,8 @@ async function closeBrowser(browser) {
 async function delay(page) {
     if (actionDelaysEnabled) {
         const delay = generateRandomDelay();
-        logger.log(`Waiting ${delay/1000} seconds...`);
+        const time = timer.getTimeAfterMs(delay).toLocaleString();
+        logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
         await page.waitFor(delay);
     }
 }

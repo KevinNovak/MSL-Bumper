@@ -1,5 +1,6 @@
 const cron = require('cron');
 const app = require('./app');
+const timer = require('./timer');
 const logger = require('./logger');
 const config = require('./config.json');
 
@@ -12,7 +13,8 @@ logger.log('Started the built-in scheduler. Script will now run according to the
 var job = new cron.CronJob(config.scheduler.cronExpression, () => {
     if (delayEnabled) {
         const delay = generateRandomDelay();
-        logger.log(`Waiting ${delay/1000} seconds...`);
+        const time = timer.getTimeAfterMs(delay).toLocaleString();
+        logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
         setTimeout(() => {
             runScript();
         }, delay);
