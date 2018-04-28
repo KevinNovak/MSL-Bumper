@@ -11,7 +11,6 @@
     },
     "scheduler": {
         "cronExpression": "0 0 9-21/6 * * *",
-        "timezone": "America/New_York",
         "delay": {
             "enabled": true,
             "minDelay": 0,

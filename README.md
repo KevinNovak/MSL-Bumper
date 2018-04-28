@@ -41,12 +41,9 @@
     * **scheduler**:
         * **cronExpression**:
             * Defines when the bump script should be ran.
-            * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html).
-                * ***NOTE***: The only special characters allowed are ```- * /```, contrary to the above documentation. See [this page](https://github.com/kelektiv/node-cron#available-cron-patterns) for more accurate information on allowed values (albeit worse documentation).
+            * [You can read about cron expressions here](https://www.freeformatter.com/cron-expression-generator-quartz.html).
+                * There are also examples and a cron expression generator.
             * Defaults to every day at 9am, 3pm, and 9pm.
-        * **timezone**:
-            * The timezone on which to run the script.
-            * Refer to [this page](https://momentjs.com/timezone/) to determine your timezone.
         * **delay**:
             * **enabled**:
                 * Whether or not to wait a random amount of time after the scheduled time comes.
