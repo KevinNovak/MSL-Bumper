@@ -1,4 +1,4 @@
-const cron = require('cron');
+const schedule = require('node-schedule');
 const app = require('./app');
 const timer = require('./timer');
 const logger = require('./logger');
@@ -8,12 +8,10 @@ const delayEnabled = config.scheduler.delay.enabled;
 const minDelay = config.scheduler.delay.minDelay * 1000;
 const maxDelay = config.scheduler.delay.maxDelay * 1000;
 
-logger.log('Started the built-in scheduler. Script will now run according to the configured cron expression.');
-
-var job = new cron.CronJob(config.scheduler.cronExpression, () => {
+var job = schedule.scheduleJob(config.scheduler.cronExpression, () => {
     if (delayEnabled) {
         const delay = generateRandomDelay();
-        const time = timer.getTimeAfterMs(delay).toLocaleString();
+        const time = timer.format(timer.getTimeAfterMs(delay));
         logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
         setTimeout(() => {
             runScript();
@@ -21,7 +19,7 @@ var job = new cron.CronJob(config.scheduler.cronExpression, () => {
     } else {
         runScript();
     }
-}, null, true, config.scheduler.timezone);
+});
 
 function runScript() {
     logger.log('Running the script...');
@@ -31,3 +29,8 @@ function runScript() {
 function generateRandomDelay() {
     return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
 }
+
+var time = timer.format(new Date(job.nextInvocation()));
+logger.log('Started the built-in scheduler. Script will now run according to the configured cron expression.');
+logger.log(`The next run is scheduled for "${time}".`);
+logger.log('NOTE: If schedule delays are enabled, delays will not start until the above time.');

@@ -70,7 +70,7 @@ async function closeBrowser(browser) {
 async function delay(page) {
     if (actionDelaysEnabled) {
         const delay = generateRandomDelay();
-        const time = timer.getTimeAfterMs(delay).toLocaleString();
+        const time = timer.format(timer.getTimeAfterMs(delay));
         logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
         await page.waitFor(delay);
     }
