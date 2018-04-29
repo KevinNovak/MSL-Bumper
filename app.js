@@ -37,7 +37,7 @@ async function bumpServer() {
     // Check if login failed
     const url = await page.url();
     if (!url.includes('dashboard')) {
-        logger.log('Login failed. Please check if the username and password are correct.');
+        logger.error('Login failed. Please check if the username and password are correct.');
         await closeBrowser(browser);
         return;
     }
@@ -53,7 +53,7 @@ async function bumpServer() {
         return document.getElementsByClassName('errormsg').length === 0;
     });
     if (!success) {
-        logger.log('Editing failed. Please check if the server ID is correct.');
+        logger.error('Editing failed. Please check if the server ID is correct.');
         await closeBrowser(browser);
         return;
     }
@@ -103,5 +103,5 @@ module.exports = {
 };
 
 process.on('unhandledRejection', (reason, promise) => {
-    logger.error('Error: Unhandled rejection.');
+    console.error('Error: Unhandled rejection. Reason: ', reason);
 });
