@@ -17,6 +17,7 @@ Auto-bump your Minecraft server on [minecraft-server-list.com](http://minecraft-
     * Run ```npm install```.
 3. Modify ```config.json```.
     * See the [Configuration](https://github.com/KevinNovak/MSL-Bumper#configuration) section.
+    * ***Important***: Remember to modify at least ```username```, ```password```, and ```serverId```.
 4. Start with ```npm start```.
 
 ## Running on a Schedule
