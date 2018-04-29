@@ -1,66 +1,75 @@
 # MSL Bumper
-### Auto-bump your Minecraft server on [minecraft-server-list.com](http://minecraft-server-list.com/).
+
+Auto-bump your Minecraft server on [minecraft-server-list.com](http://minecraft-server-list.com/).
 
 ## Requirements
+
 * Node.js
-    * [Install files can be found here](https://nodejs.org/en/download/).
+  * [Install files can be found here](https://nodejs.org/en/download/).
 * Git
-    * [Install files can be found here](https://git-scm.com/downloads).
+  * [Install files can be found here](https://git-scm.com/downloads).
 
 ## Getting Started
+
 1. Clone this repository.
     * Run ```git clone https://github.com/KevinNovak/MSL-Bumper.git```.
 2. Navigate to the cloned repository and install the required packages.
     * Run ```npm install```.
-2. Modify ```config.json```.
-    * **bumpEnabled**:
-        * Actually bump the server?
-            * Set to ```true``` or ```false```.
-                * If ```false```, will run all actions except the actual bump, useful for testing.
-    * **hideBrowser**:
-        * Should the browser window be hidden?
-            * Set to ```true``` or ```false```.
-        * ***NOTE***: Set to ```false``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
-    * **username**:
-        * Your **minecraft-server-list.com** username.
-    * **password**:
-        * Your **minecraft-server-list.com** password.
-    * **serverId**:
-        * Your **minecraft-server-list.com** server ID.
-        * This can be found in the URL of your servers page on **minecraft-server-list.com**.
-            *  For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
-                * In this example ```"123456"``` is the server ID.
-    * **actionDelays**:
-        * **enabled**:
-            * Whether or not this script should wait a random amount of time between actions.
-                * Set to ```true``` or ```false```.
-            * Recommended to leave enabled.
-        * **minDelay**:
-            * The minimum amount of time in seconds to wait.
-        * **maxDelay**:
-            * The maximum amount of time in seconds to wait.
-    * **scheduler**:
-        * **cronExpression**:
-            * Defines when the bump script should be ran.
-            * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html)
-            * [Here are some examples and a cron generator](https://www.freeformatter.com/cron-expression-generator-quartz.html).
-            * ***NOTE***: Does not support every format. See [this page](https://github.com/harrisiirak/cron-parser#supported-format) for details.
-            * Defaults to every day at 9am, 3pm, and 9pm.
-                * With a 0 to 2 hour delay, see ```delay``` below.
-        * **delay**:
-            * **enabled**:
-                * Whether or not to wait a random amount of time after the scheduled time comes.
-                    * Set to ```true``` or ```false```.
-                * Recommended to leave enabled.
-            * **minDelay**:
-                * The minimum amount of time in seconds to wait.
-            * **maxDelay**:
-                * The maximum amount of time in seconds to wait.
-                * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
-3. Start with ```npm start```.
+3. Modify ```config.json```.
+    * See the [Configuration](https://github.com/KevinNovak/MSL-Bumper#configuration) section.
+4. Start with ```npm start```.
+
+## Configuration
+
+* **bumpEnabled**:
+  * Actually bump the server?
+    * Set to ```true``` or ```false```.
+      * If ```false```, will run all actions except the actual bump, useful for testing.
+* **hideBrowser**:
+  * Should the browser window be hidden?
+    * Set to ```true``` or ```false```.
+  * ***NOTE***: Set to ```false``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
+* **username**:
+  * Your **minecraft-server-list.com** username.
+* **password**:
+  * Your **minecraft-server-list.com** password.
+* **serverId**:
+  * Your **minecraft-server-list.com** server ID.
+  * This can be found in the URL of your servers page on **minecraft-server-list.com**.
+    * For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
+      * In this example ```"123456"``` is the server ID.
+* **actionDelays**:
+  * **enabled**:
+    * Whether or not this script should wait a random amount of time between actions.
+      * Set to ```true``` or ```false```.
+    * Recommended to leave enabled.
+  * **minDelay**:
+    * The minimum amount of time in seconds to wait.
+  * **maxDelay**:
+    * The maximum amount of time in seconds to wait.
+* **scheduler**:
+  * **cronExpression**:
+    * Defines when the bump script should be ran.
+    * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html)
+    * [Here are some examples and a cron generator](https://www.freeformatter.com/cron-expression-generator-quartz.html).
+    * ***NOTE***: Does not support every format. See [this page](https://github.com/harrisiirak/cron-parser#supported-format) for details.
+    * Defaults to every day at 9am, 3pm, and 9pm.
+      * With a 0 to 2 hour delay, see ```delay``` below.
+  * **delay**:
+    * **enabled**:
+      * Whether or not to wait a random amount of time after the scheduled time comes.
+      * Set to ```true``` or ```false```.
+      * Recommended to leave enabled.
+    * **minDelay**:
+      * The minimum amount of time in seconds to wait.
+    * **maxDelay**:
+      * The maximum amount of time in seconds to wait.
+    * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
 
 ## Running on a Schedule
+
 There are 3 main ways you can run this script on a schedule:
+
 1. Built-in scheduler:
     * Simply run ```npm run scheduler```.
     * The **recommended** and probably easiest method.
@@ -81,8 +90,10 @@ There are 3 main ways you can run this script on a schedule:
         * Mac & Linux: [Schedule Tasks on Linux Using Crontab](https://kvz.io/blog/2007/07/29/schedule-tasks-on-linux-using-crontab/)
 
 ## Disclaimer
+
 Running automated scripts like this one is often against a websites terms and conditions. Ultimately you are the one responsible for knowing the terms and conditions, and for what you do with this script. Run at your own risk.
 
 ## References
+
 * [Puppeteer](https://developers.google.com/web/tools/puppeteer/) by [Google](https://developers.google.com/) - Automate browser tasks in Chrome or Chromium.
 * [Node Schedule](https://github.com/node-schedule/node-schedule) by [Tejas Manohar](https://tejas.io/) & [Santiago Gimeno](https://github.com/santigimeno) - Schedule jobs to run with Node.js.
