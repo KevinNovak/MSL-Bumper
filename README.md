@@ -20,6 +20,7 @@
     * **hideBrowser**:
         * Should the browser window be hidden?
             * Set to ```true``` or ```false```.
+        * ***NOTE***: Set to ```false``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
     * **username**:
         * Your **minecraft-server-list.com** username.
     * **password**:
