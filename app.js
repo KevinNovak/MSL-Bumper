@@ -72,7 +72,6 @@ async function bumpServer() {
     // Logout
     logger.log('Logging out...');
     await page.goto(baseUrl + 'login/logout.php');
-    await delay(page);
 
     // Close browser
     await closeBrowser(browser);
