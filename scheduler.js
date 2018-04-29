@@ -33,4 +33,6 @@ function generateRandomDelay() {
 var time = timer.format(new Date(job.nextInvocation()));
 logger.log('Started the built-in scheduler. Script will now run according to the configured cron expression.');
 logger.log(`The next run is scheduled for "${time}".`);
-logger.log('NOTE: If schedule delays are enabled, delays will not start until the above time.');
+if (delayEnabled) {
+    logger.log('NOTE: Scheduled delays will not start until the above time.');
+}
