@@ -63,7 +63,9 @@ async function bumpServer() {
     // Bump server
     if (config.bumpEnabled) {
         logger.log('Bumping Server...');
-        await page.evaluate(saveServer());
+        await page.evaluate(() => {
+            saveServer();
+        });
         await delay(page);
     }
 
