@@ -10,14 +10,14 @@
         "maxDelay": 5
     },
     "scheduler": {
-        "cronExpression": "0 0 9-21/6 * * *",
+        "cronExpression": "*/30 * * * * *",
         "delay": {
             "enabled": true,
-            "minDelay": 0,
-            "maxDelay": 7200
+            "minDelay": 2,
+            "maxDelay": 5
         }
     },
-    "customChrome": {
+    "customBrowser": {
         "enabled": false,
         "path": "/usr/bin/chromium-browser"
     }

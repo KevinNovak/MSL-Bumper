@@ -12,8 +12,8 @@ const options = {
     headless: config.hideBrowser
 };
 
-if (config.customChrome.enabled) {
-    options.executablePath = config.customChrome.path;
+if (config.customBrowser.enabled) {
+    options.executablePath = config.customBrowser.path;
 }
 
 const baseUrl = 'https://minecraft-server-list.com/';
