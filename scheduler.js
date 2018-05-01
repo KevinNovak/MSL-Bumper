@@ -12,18 +12,20 @@ var job = schedule.scheduleJob(config.scheduler.cronExpression, () => {
     if (delayEnabled) {
         const delay = generateRandomDelay();
         const time = timer.format(timer.getTimeAfterMs(delay));
+        logger.log('Scheduled time reached.');
         logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
         setTimeout(() => {
             runScript();
         }, delay);
     } else {
+        logger.log('Scheduled time reached.');
         runScript();
     }
 });
 
-function runScript() {
+async function runScript() {
     logger.log('Running the script...');
-    app.bumpServer();
+    await app.bumpServer();
     logNextRun();
 }
 
@@ -39,5 +41,5 @@ function generateRandomDelay() {
     return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
 }
 
-logger.log('Started the built-in scheduler. Script will now run according to the configured cron expression.');
+logger.log('Started the built-in scheduler.');
 logNextRun();
