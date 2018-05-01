@@ -49,11 +49,9 @@ There are 3 main ways you can run this script on a schedule:
 
 * **bumpEnabled**:
   * Actually bump the server?
-    * Set to ```true``` or ```false```.
       * If ```false```, will run all actions except the actual bump, useful for testing.
 * **hideBrowser**:
   * Should the browser window be hidden?
-    * Set to ```true``` or ```false```.
   * ***NOTE***: Set to ```false``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
 * **username**:
   * Your **minecraft-server-list.com** username.
@@ -67,7 +65,6 @@ There are 3 main ways you can run this script on a schedule:
 * **actionDelays**:
   * **enabled**:
     * Whether or not this script should wait a random amount of time between actions.
-      * Set to ```true``` or ```false```.
     * Recommended to leave enabled.
   * **minDelay**:
     * The minimum amount of time in seconds to wait.
@@ -84,13 +81,18 @@ There are 3 main ways you can run this script on a schedule:
   * **delay**:
     * **enabled**:
       * Whether or not to wait a random amount of time after the scheduled time comes.
-      * Set to ```true``` or ```false```.
       * Recommended to leave enabled.
     * **minDelay**:
       * The minimum amount of time in seconds to wait.
     * **maxDelay**:
       * The maximum amount of time in seconds to wait.
     * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
+* **customChrome**:
+  * **enabled**:
+    * Whether or not to use your own version of Chrome from the provided path.
+  * **path**:
+    * The path to the Chrome or Chromium executable to use if enabled above.
+    * See [this page](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions) for more details.
 
 ## Disclaimer
 

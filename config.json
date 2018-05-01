@@ -16,5 +16,9 @@
             "minDelay": 0,
             "maxDelay": 7200
         }
+    },
+    "customChrome": {
+        "enabled": false,
+        "path": "/usr/bin/chromium-browser"
     }
 }

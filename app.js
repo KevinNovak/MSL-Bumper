@@ -9,12 +9,18 @@ const maxDelay = config.actionDelays.maxDelay * 1000;
 
 const baseUrl = 'https://minecraft-server-list.com/';
 
+const options = {
+    headless: config.hideBrowser
+};
+
+if (config.customChrome.enabled) {
+    options.executablePath = config.customChrome.path;
+}
+
 async function bumpServer() {
     // Open browser
     logger.log('Opening browser...');
-    const browser = await puppeteer.launch({
-        headless: config.hideBrowser
-    });
+    const browser = await launchBrowser();
     browser.on('disconnected', async () => {
         logger.log('Browser disconnected.');
         process.exit();
@@ -75,6 +81,15 @@ async function bumpServer() {
 
     // Close browser
     await closeBrowser(browser);
+}
+
+async function launchBrowser() {
+    try {
+        return await puppeteer.launch(options);
+    } catch (error) {
+        logger.error('Failed to launch browser. Please check if the executable path is correct or try headless mode.');
+        process.exit();
+    }
 }
 
 async function closeBrowser(browser) {
