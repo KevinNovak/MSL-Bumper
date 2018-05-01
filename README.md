@@ -86,11 +86,12 @@ There are 3 main ways you can run this script on a schedule:
       * The minimum amount of time in seconds to wait.
     * **maxDelay**:
       * The maximum amount of time in seconds to wait.
-    * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
+      * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
 * **customBrowser**:
   * **enabled**:
     * Whether or not to use your own custom browser from the provided path.
     * ***NOTE***: Supports most newer versions of Chrome or Chromium.
+    * If ```false``` will use the default version of Chromium bundled with this package.
   * **path**:
     * The path to the Chrome or Chromium executable to use (if enabled above).
     * See [this page](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions) for more details.
