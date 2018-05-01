@@ -97,7 +97,7 @@ There are 3 main ways you can run this script on a schedule:
       * [Here are some examples and a cron generator](https://www.freeformatter.com/cron-expression-generator-quartz.html).
       * ***NOTE***: Does not support every format. See [this page](https://github.com/harrisiirak/cron-parser#supported-format) for details.
       * Defaults to every day at 9am, 3pm, and 9pm.
-        * With a 0 to 2 hour delay, see ```delay``` below.
+        * With a 0 to 2 hour offset, see ```offset``` below.
     * **offset**:
       * **enabled**:
         * Whether or not to wait a random amount of time after the scheduled time comes.
