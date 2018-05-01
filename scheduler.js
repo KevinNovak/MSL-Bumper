@@ -24,15 +24,20 @@ var job = schedule.scheduleJob(config.scheduler.cronExpression, () => {
 function runScript() {
     logger.log('Running the script...');
     app.bumpServer();
+    logNextRun();
+}
+
+function logNextRun() {
+    var time = timer.format(new Date(job.nextInvocation()));
+    logger.log(`The next run is scheduled for "${time}".`);
+    if (delayEnabled) {
+        logger.log('NOTE: Scheduled delays will not start until the above time.');
+    }
 }
 
 function generateRandomDelay() {
     return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
 }
 
-var time = timer.format(new Date(job.nextInvocation()));
 logger.log('Started the built-in scheduler. Script will now run according to the configured cron expression.');
-logger.log(`The next run is scheduled for "${time}".`);
-if (delayEnabled) {
-    logger.log('NOTE: Scheduled delays will not start until the above time.');
-}
+logNextRun();
