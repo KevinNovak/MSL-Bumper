@@ -4,6 +4,14 @@
     "username": "Username",
     "password": "Password",
     "serverId": "123456",
+    "descriptions": {
+        "enabled": false,
+        "list": [
+            "Description 1",
+            "Description 2",
+            "Description 3"
+        ]
+    },
     "actionDelays": {
         "enabled": true,
         "minDelay": 1,

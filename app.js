@@ -6,6 +6,7 @@ const config = require('./config.json');
 const actionDelaysEnabled = config.actionDelays.enabled;
 const minDelay = config.actionDelays.minDelay * 1000;
 const maxDelay = config.actionDelays.maxDelay * 1000;
+const descriptions = config.descriptions.list;
 
 // Browser options
 const options = {
@@ -68,6 +69,14 @@ async function bumpServer() {
 
     await delay(page);
 
+    // Set description
+    if (config.descriptions.enabled) {
+        const description = getRandomDescription();
+        await page.evaluate((description) => {
+            document.getElementsByName('description')[0].value = description;
+        }, description);
+    }
+
     // Bump server
     if (config.bumpEnabled) {
         logger.log('Bumping Server...');
@@ -97,6 +106,10 @@ async function launchBrowser() {
 async function closeBrowser(browser) {
     logger.log('Closing browser...');
     await browser.close();
+}
+
+function getRandomDescription() {
+    return descriptions[Math.floor(Math.random() * descriptions.length)];
 }
 
 async function delay(page) {

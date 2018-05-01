@@ -62,6 +62,14 @@ There are 3 main ways you can run this script on a schedule:
   * This can be found in the URL of your servers page on **minecraft-server-list.com**.
     * For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
       * In this example ```"123456"``` is the server ID.
+* **descriptions**:
+  * **enabled**:
+    * Whether or not to type in a random description for the server.
+    * ***Important***: If enabling, remember to modify the list of descriptions. Don't use the default.
+  * **list**:
+    * A list of possible descriptions to use.
+      * You can add as many as you want.
+    * If enabled, one will be chosen at random each time the script is run.
 * **actionDelays**:
   * **enabled**:
     * Whether or not this script should wait a random amount of time between actions.
