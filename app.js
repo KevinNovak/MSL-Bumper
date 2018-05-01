@@ -23,7 +23,7 @@ async function bumpServer() {
     const browser = await launchBrowser();
     browser.on('disconnected', async () => {
         logger.log('Browser disconnected.');
-        process.exit();
+        exit();
     });
 
     const page = await browser.newPage();
@@ -88,7 +88,7 @@ async function launchBrowser() {
         return await puppeteer.launch(options);
     } catch (error) {
         logger.error('Failed to launch browser. Please check if the executable path is correct or try headless mode.');
-        process.exit();
+        exit();
     }
 }
 
@@ -108,6 +108,12 @@ async function delay(page) {
 
 function generateRandomDelay() {
     return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
+}
+
+function exit() {
+    if (!module.parent) {
+        process.exit();
+    }
 }
 
 if (!module.parent) {
