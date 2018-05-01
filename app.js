@@ -3,18 +3,18 @@ const timer = require('./timer');
 const logger = require('./logger');
 const config = require('./config.json');
 
-const actionDelaysEnabled = config.actionDelays.enabled;
-const minDelay = config.actionDelays.minDelay * 1000;
-const maxDelay = config.actionDelays.maxDelay * 1000;
-const descriptions = config.descriptions.list;
+const delaysEnabled = config.timings.delays.enabled;
+const minDelay = config.timings.delays.min * 1000;
+const maxDelay = config.timings.delays.max * 1000;
+const descriptions = config.bump.descriptions.list;
 
 // Browser options
 const options = {
-    headless: config.hideBrowser
+    headless: config.browser.hide
 };
 
-if (config.customBrowser.enabled) {
-    options.executablePath = config.customBrowser.path;
+if (config.browser.custom.enabled) {
+    options.executablePath = config.browser.custom.path;
 }
 
 const baseUrl = 'https://minecraft-server-list.com/';
@@ -33,8 +33,8 @@ async function bumpServer() {
     // Input username and password
     logger.log('Inputing username and password...');
     await page.goto(baseUrl + 'login/login.php');
-    await page.type(`input[name='username']`, config.username);
-    await page.type(`input[name='password']`, config.password);
+    await page.type(`input[name='username']`, config.account.username);
+    await page.type(`input[name='password']`, config.account.password);
     await delay(page);
 
     // Login
@@ -54,7 +54,7 @@ async function bumpServer() {
 
     // Nagivate to "Edit Server" page
     logger.log('Navigating to "Edit Server" page...');
-    await page.goto(baseUrl + `login/edit_server.php?server_id=${config.serverId}`);
+    await page.goto(baseUrl + `login/edit_server.php?server_id=${config.account.serverId}`);
 
     // Check if editing is allowed
     const success = await page.evaluate(() => {
@@ -70,7 +70,7 @@ async function bumpServer() {
     await delay(page);
 
     // Set description
-    if (config.descriptions.enabled) {
+    if (config.bump.descriptions.enabled) {
         const description = getRandomDescription();
         await page.evaluate((description) => {
             document.getElementsByName('description')[0].value = description;
@@ -78,7 +78,7 @@ async function bumpServer() {
     }
 
     // Bump server
-    if (config.bumpEnabled) {
+    if (config.bump.enabled) {
         logger.log('Bumping Server...');
         await page.evaluate(() => {
             saveServer();
@@ -113,7 +113,7 @@ function getRandomDescription() {
 }
 
 async function delay(page) {
-    if (actionDelaysEnabled) {
+    if (delaysEnabled) {
         const delay = generateRandomDelay();
         const time = timer.format(timer.getTimeAfterMs(delay));
         logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);

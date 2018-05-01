@@ -1,32 +1,40 @@
 {
-    "bumpEnabled": true,
-    "hideBrowser": true,
-    "username": "Username",
-    "password": "Password",
-    "serverId": "123456",
-    "descriptions": {
-        "enabled": false,
-        "list": [
-            "Description 1",
-            "Description 2",
-            "Description 3"
-        ]
+    "account": {
+        "username": "Username",
+        "password": "Password",
+        "serverId": "123456"
     },
-    "actionDelays": {
+    "bump": {
         "enabled": true,
-        "minDelay": 1,
-        "maxDelay": 5
-    },
-    "scheduler": {
-        "cronExpression": "0 0 9-21/6 * * *",
-        "delay": {
-            "enabled": true,
-            "minDelay": 0,
-            "maxDelay": 7200
+        "descriptions": {
+            "enabled": false,
+            "list": [
+                "Description 1",
+                "Description 2",
+                "Description 3"
+            ]
         }
     },
-    "customBrowser": {
-        "enabled": false,
-        "path": "/usr/bin/chromium-browser"
+    "browser": {
+        "hide": true,
+        "custom": {
+            "enabled": false,
+            "path": "/usr/bin/chromium-browser"
+        }
+    },
+    "timings": {
+        "delays": {
+            "enabled": true,
+            "min": 1,
+            "max": 5
+        },
+        "scheduler": {
+            "expression": "0 0 9-21/6 * * *",
+            "offset": {
+                "enabled": true,
+                "min": 0,
+                "max": 7200
+            }
+        }
     }
 }

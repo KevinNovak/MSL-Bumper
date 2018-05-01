@@ -4,19 +4,19 @@ const timer = require('./timer');
 const logger = require('./logger');
 const config = require('./config.json');
 
-const delayEnabled = config.scheduler.delay.enabled;
-const minDelay = config.scheduler.delay.minDelay * 1000;
-const maxDelay = config.scheduler.delay.maxDelay * 1000;
+const offsetEnabled = config.timings.scheduler.offset.enabled;
+const minOffset = config.timings.scheduler.offset.min * 1000;
+const maxOffset = config.timings.scheduler.offset.max * 1000;
 
-var nextDelay = generateRandomDelay();
+var nextOffset = generateRandomOffset();
 
-var job = schedule.scheduleJob(config.scheduler.cronExpression, () => {
-    if (delayEnabled) {
-        const delay = nextDelay;
-        nextDelay = generateRandomDelay();
+var job = schedule.scheduleJob(config.timings.scheduler.expression, () => {
+    if (offsetEnabled) {
+        const offset = nextOffset;
+        nextOffset = generateRandomOffset();
         setTimeout(() => {
             runScript();
-        }, delay);
+        }, offset);
     } else {
         runScript();
     }
@@ -28,13 +28,13 @@ async function runScript() {
     logNextRun();
 }
 
-function generateRandomDelay() {
-    return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
+function generateRandomOffset() {
+    return Math.floor(Math.random() * (maxOffset - minOffset + 1) + minOffset);
 }
 
 function logNextRun() {
     var nextInvocation = new Date(job.nextInvocation());
-    var time = timer.format(timer.getTimeAfterMs(nextDelay, nextInvocation));
+    var time = timer.format(timer.getTimeAfterMs(nextOffset, nextInvocation));
     logger.log(`The next run is scheduled for "${time}".`);
 }
 
