@@ -1,6 +1,6 @@
 {
     "bumpEnabled": true,
-    "hideBrowser": false,
+    "hideBrowser": true,
     "username": "Username",
     "password": "Password",
     "serverId": "123456",

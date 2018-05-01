@@ -52,7 +52,7 @@ There are 3 main ways you can run this script on a schedule:
       * If ```false```, will run all actions except the actual bump, useful for testing.
 * **hideBrowser**:
   * Should the browser window be hidden?
-  * ***NOTE***: Set to ```false``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
+  * ***NOTE***: Set to ```true``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
 * **username**:
   * Your **minecraft-server-list.com** username.
 * **password**:
