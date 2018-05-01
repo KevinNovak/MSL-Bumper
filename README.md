@@ -47,62 +47,66 @@ There are 3 main ways you can run this script on a schedule:
 
 ## Configuration
 
-* **bumpEnabled**:
-  * Actually bump the server?
-      * If ```false```, will run all actions except the actual bump, useful for testing.
-* **hideBrowser**:
-  * Should the browser window be hidden?
-  * ***NOTE***: Set to ```true``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
-* **username**:
-  * Your **minecraft-server-list.com** username.
-* **password**:
-  * Your **minecraft-server-list.com** password.
-* **serverId**:
-  * Your **minecraft-server-list.com** server ID.
-  * This can be found in the URL of your servers page on **minecraft-server-list.com**.
-    * For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
-      * In this example ```"123456"``` is the server ID.
-* **descriptions**:
+* **account**:
+  * **username**:
+    * Your **minecraft-server-list.com** username.
+  * **password**:
+    * Your **minecraft-server-list.com** password.
+  * **serverId**:
+    * Your **minecraft-server-list.com** server ID.
+    * This can be found in the URL of your servers page on **minecraft-server-list.com**.
+      * For example, your servers page URL might be ```http://minecraft-server-list.com/server/123456/```.
+        * In this example ```"123456"``` is the server ID.
+* **bump**:
   * **enabled**:
-    * Whether or not to type in a random description for the server.
-    * ***Important***: If enabling, remember to modify the list of descriptions. Don't use the default.
-  * **list**:
-    * A list of possible descriptions to use.
-      * You can add as many as you want.
-    * If enabled, one will be chosen at random each time the script is run.
-* **actionDelays**:
-  * **enabled**:
-    * Whether or not this script should wait a random amount of time between actions.
-    * Recommended to leave enabled.
-  * **minDelay**:
-    * The minimum amount of time in seconds to wait.
-  * **maxDelay**:
-    * The maximum amount of time in seconds to wait.
-* **scheduler**:
-  * **cronExpression**:
-    * Defines when the bump script should be ran.
-    * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html)
-    * [Here are some examples and a cron generator](https://www.freeformatter.com/cron-expression-generator-quartz.html).
-    * ***NOTE***: Does not support every format. See [this page](https://github.com/harrisiirak/cron-parser#supported-format) for details.
-    * Defaults to every day at 9am, 3pm, and 9pm.
-      * With a 0 to 2 hour delay, see ```delay``` below.
-  * **delay**:
+    * Actually bump the server?
+    * If ```false```, will run all actions except the actual bump, useful for testing.
+  * **descriptions**:
     * **enabled**:
-      * Whether or not to wait a random amount of time after the scheduled time comes.
+      * Whether or not to type in a random description for the server.
+      * ***Important***: If enabling, remember to modify the list of descriptions. Don't use the default.
+    * **list**:
+      * A list of possible descriptions to use.
+        * You can add as many as you want.
+      * If enabled, one will be chosen at random each time the script is run.
+* **browser**:
+  * **hide**:
+    * Should the browser window be hidden?
+    * ***NOTE***: Set to ```true``` if running from SSH or a non-GUI OS like Debian or Raspbian Lite.
+  * **custom**:
+    * **enabled**:
+      * Whether or not to use your own custom browser from the provided path.
+      * ***NOTE***: Supports most newer versions of Chrome or Chromium.
+      * If ```false``` will use the default version of Chromium bundled with this package.
+    * **path**:
+      * The path to the Chrome or Chromium executable to use (if enabled above).
+      * See [this page](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions) for more details.
+* **timings**
+  * **delays**:
+    * **enabled**:
+      * Whether or not this script should wait a random amount of time between actions.
       * Recommended to leave enabled.
-    * **minDelay**:
+    * **min**:
       * The minimum amount of time in seconds to wait.
-    * **maxDelay**:
+    * **max**:
       * The maximum amount of time in seconds to wait.
-      * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
-* **customBrowser**:
-  * **enabled**:
-    * Whether or not to use your own custom browser from the provided path.
-    * ***NOTE***: Supports most newer versions of Chrome or Chromium.
-    * If ```false``` will use the default version of Chromium bundled with this package.
-  * **path**:
-    * The path to the Chrome or Chromium executable to use (if enabled above).
-    * See [this page](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions) for more details.
+  * **scheduler**:
+    * **expression**:
+      * Defines when the bump script should be ran using a cron expression.
+      * [You can read about cron expressions here](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger.html)
+      * [Here are some examples and a cron generator](https://www.freeformatter.com/cron-expression-generator-quartz.html).
+      * ***NOTE***: Does not support every format. See [this page](https://github.com/harrisiirak/cron-parser#supported-format) for details.
+      * Defaults to every day at 9am, 3pm, and 9pm.
+        * With a 0 to 2 hour delay, see ```delay``` below.
+    * **offset**:
+      * **enabled**:
+        * Whether or not to wait a random amount of time after the scheduled time comes.
+        * Recommended to leave enabled.
+      * **min**:
+        * The minimum amount of time in seconds to wait.
+      * **max**:
+        * The maximum amount of time in seconds to wait.
+        * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
 
 ## Disclaimer
 
