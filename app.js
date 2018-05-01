@@ -7,8 +7,7 @@ const actionDelaysEnabled = config.actionDelays.enabled;
 const minDelay = config.actionDelays.minDelay * 1000;
 const maxDelay = config.actionDelays.maxDelay * 1000;
 
-const baseUrl = 'https://minecraft-server-list.com/';
-
+// Browser options
 const options = {
     headless: config.hideBrowser
 };
@@ -16,6 +15,8 @@ const options = {
 if (config.customChrome.enabled) {
     options.executablePath = config.customChrome.path;
 }
+
+const baseUrl = 'https://minecraft-server-list.com/';
 
 async function bumpServer() {
     // Open browser
@@ -58,6 +59,7 @@ async function bumpServer() {
     const success = await page.evaluate(() => {
         return document.getElementsByClassName('errormsg').length === 0;
     });
+
     if (!success) {
         logger.error('Editing failed. Please check if the server ID is correct.');
         await closeBrowser(browser);
@@ -116,6 +118,12 @@ function exit() {
     }
 }
 
+process.on('unhandledRejection', (reason, promise) => {
+    console.error('Error: Unhandled rejection. Reason: ', reason);
+    exit();
+});
+
+// Main function
 if (!module.parent) {
     bumpServer();
 }
@@ -123,7 +131,3 @@ if (!module.parent) {
 module.exports = {
     bumpServer
 };
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('Error: Unhandled rejection. Reason: ', reason);
-});

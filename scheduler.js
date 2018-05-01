@@ -10,10 +10,9 @@ const maxDelay = config.scheduler.delay.maxDelay * 1000;
 
 var job = schedule.scheduleJob(config.scheduler.cronExpression, () => {
     if (delayEnabled) {
-        const delay = generateRandomDelay();
-        const time = timer.format(timer.getTimeAfterMs(delay));
         logger.log('Scheduled time reached.');
-        logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
+        const delay = generateRandomDelay();
+        logDelay(delay);
         setTimeout(() => {
             runScript();
         }, delay);
@@ -29,6 +28,10 @@ async function runScript() {
     logNextRun();
 }
 
+function generateRandomDelay() {
+    return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
+}
+
 function logNextRun() {
     var time = timer.format(new Date(job.nextInvocation()));
     logger.log(`The next run is scheduled for "${time}".`);
@@ -37,8 +40,9 @@ function logNextRun() {
     }
 }
 
-function generateRandomDelay() {
-    return Math.floor(Math.random() * (maxDelay - minDelay + 1) + minDelay);
+function logDelay(delay) {
+    const time = timer.format(timer.getTimeAfterMs(delay));
+    logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
 }
 
 logger.log('Started the built-in scheduler.');
