@@ -1,0 +1,11 @@
+{
+    "base": "https://minecraft-server-list.com/",
+    "pages": {
+        "login": "login/login.php",
+        "logout": "login/logout.php",
+        "edit": "login/edit_server.php"
+    },
+    "queries": {
+        "serverId": "server_id"
+    }
+}

@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const timer = require('./timer');
 const logger = require('./logger');
+const urls = require('./urls.json');
 const config = require('./config.json');
 
 const delaysEnabled = config.timings.delays.enabled;
@@ -17,8 +18,6 @@ if (config.browser.custom.enabled) {
     options.executablePath = config.browser.custom.path;
 }
 
-const baseUrl = 'https://minecraft-server-list.com/';
-
 async function bumpServer() {
     // Open browser
     logger.log('Opening browser...');
@@ -32,7 +31,7 @@ async function bumpServer() {
 
     // Input username and password
     logger.log('Inputing username and password...');
-    await page.goto(baseUrl + 'login/login.php');
+    await page.goto(urls.base + urls.pages.login);
     await page.type(`input[name='username']`, config.account.username);
     await page.type(`input[name='password']`, config.account.password);
     await delay(page);
@@ -54,7 +53,7 @@ async function bumpServer() {
 
     // Nagivate to "Edit Server" page
     logger.log('Navigating to "Edit Server" page...');
-    await page.goto(baseUrl + `login/edit_server.php?server_id=${config.account.serverId}`);
+    await page.goto(`${urls.base}${urls.pages.edit}?${urls.queries.serverId}=${config.account.serverId}`);
 
     // Check if editing is allowed
     const success = await page.evaluate(() => {
@@ -88,7 +87,7 @@ async function bumpServer() {
 
     // Logout
     logger.log('Logging out...');
-    await page.goto(baseUrl + 'login/logout.php');
+    await page.goto(urls.base + urls.pages.logout);
 
     // Close browser
     await closeBrowser(browser);
