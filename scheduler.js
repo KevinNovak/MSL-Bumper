@@ -1,7 +1,7 @@
 const schedule = require('node-schedule');
 const app = require('./app');
-const timer = require('./timer');
-const logger = require('./logger');
+const timer = require('./utilities/timer');
+const logger = require('./utilities/logger');
 const config = require('./config.json');
 
 const offsetEnabled = config.timings.scheduler.offset.enabled;

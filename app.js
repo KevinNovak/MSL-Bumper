@@ -1,8 +1,8 @@
 const puppeteer = require('puppeteer');
-const timer = require('./timer');
-const logger = require('./logger');
-const urls = require('./urls.json');
-const selectors = require('./selectors.json');
+const timer = require('./utilities/timer');
+const logger = require('./utilities/logger');
+const urls = require('./data/urls.json');
+const selectors = require('./data/selectors.json');
 const config = require('./config.json');
 
 const delaysEnabled = config.timings.delays.enabled;
