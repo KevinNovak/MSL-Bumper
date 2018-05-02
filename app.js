@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const timer = require('./timer');
 const logger = require('./logger');
 const urls = require('./urls.json');
+const selectors = require('./selectors.json');
 const config = require('./config.json');
 
 const delaysEnabled = config.timings.delays.enabled;
@@ -32,13 +33,13 @@ async function bumpServer() {
     // Input username and password
     logger.log('Inputing username and password...');
     await page.goto(urls.base + urls.pages.login);
-    await page.type(`input[name='username']`, config.account.username);
-    await page.type(`input[name='password']`, config.account.password);
+    await page.type(selectors.fields.username, config.account.username);
+    await page.type(selectors.fields.password, config.account.password);
     await delay(page);
 
     // Login
     logger.log('Logging in...');
-    await page.click(`[name='Submit']`);
+    await page.click(selectors.buttons.login);
     await page.waitForNavigation();
 
     // Check if login failed
