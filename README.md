@@ -24,7 +24,7 @@ Running this script will automatically put your server at the top of the [Recent
 
 ## Running on a Schedule
 
-There are 3 main ways you can run this script on a schedule:
+There are 2 main ways you can run this script on a schedule:
 
 1. Built-in scheduler:
     * Simply run ```npm run scheduler```.
@@ -34,15 +34,12 @@ There are 3 main ways you can run this script on a schedule:
         * Restart with ```pm2 restart msl-bumper```.
         * Stop with ```pm2 stop msl-bumper```.
         * Remove with ```pm2 delete msl-bumper```.
-2. Running the Node.js script through a custom scheduler:
+2. Custom scheduler:
     * Setup a custom scheduler of your choice to run ```node app.js``` or ```npm start```.
-    * Some helpful resources:
+    * Run directly with Node:
         * Windows: [Run a Node script with Windows task scheduler](https://eddyerburgh.me/run-a-node-script-with-windows-task-scheduler)
         * Mac & Linux: [How to Run Node.js Scripts from a Cron Job](https://askmacgyver.com/blog/tutorial/how-to-run-node-scripts-from-a-cron-job)
-3. Running the shell script through a custom scheduler:
-    * Setup a custom scheduler of your choice to run the ```bump.sh``` script.
-    * Simply runs the Node.js script inside a shell script wrapper.
-    * Some helpful resources:
+    * Run from a shell script:
         * Windows: [Execute Bash Script (Using Git Bash) from Windows Task Scheduler](https://gist.github.com/damc-dev/eb5e1aef001eef78c0f4)
         * Mac: [How to Run a Shell Script Every Day on a Mac](https://www.dssw.co.uk/blog/2011-05-22-how-to-run-a-shell-script-every-day-on-a-mac/)
         * Mac & Linux: [Schedule Tasks on Linux Using Crontab](https://kvz.io/blog/2007/07/29/schedule-tasks-on-linux-using-crontab/)
