@@ -2,6 +2,8 @@
 
 Auto-bump your Minecraft server on [minecraft-server-list.com](http://minecraft-server-list.com/).
 
+Running this script will automatically put your server at the top of the [Recently Updated](https://minecraft-server-list.com/updated/) servers list, which will help your server attract more players. Includes a built-in scheduler which can be set on any schedule you'd like.
+
 ## Requirements
 
 * Node.js
