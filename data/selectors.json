@@ -1,9 +1,11 @@
 {
     "fields": {
         "username": "input[name='username']",
-        "password": "input[name='password']"
+        "password": "input[name='password']",
+        "description": "textarea[name='description']"
     },
     "buttons": {
         "login": "input[name='Submit']"
-    }
+    },
+    "error": "div.errormsg"
 }

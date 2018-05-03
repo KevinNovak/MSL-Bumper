@@ -57,9 +57,10 @@ async function bumpServer() {
     await page.goto(`${urls.base}${urls.pages.edit}?${urls.queries.serverId}=${config.account.serverId}`);
 
     // Check if editing is allowed
-    const success = await page.evaluate(() => {
-        return document.getElementsByClassName('errormsg').length === 0;
-    });
+    const selector = selectors.error;
+    const success = await page.evaluate((selector) => {
+        return document.querySelectorAll(selector).length === 0;
+    }, selector);
 
     if (!success) {
         logger.error('Editing failed. Please check if the server ID is correct.');
@@ -71,10 +72,17 @@ async function bumpServer() {
 
     // Set description
     if (config.bump.descriptions.enabled) {
+        const selector = selectors.fields.description;
         const description = getRandomDescription();
-        await page.evaluate((description) => {
-            document.getElementsByName('description')[0].value = description;
-        }, description);
+        await page.evaluate(({
+            selector,
+            description
+        }) => {
+            document.querySelector(selector).value = description;
+        }, {
+            selector,
+            description
+        });
     }
 
     // Bump server
