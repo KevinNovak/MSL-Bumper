@@ -8,7 +8,6 @@ function getTimeAfterMs(delay, date = Date.now()) {
     return moment(date).add(delay, 'milliseconds').toDate();
 }
 
-
 module.exports = {
     format,
     getTimeAfterMs
