@@ -40,11 +40,9 @@ async function bumpServer() {
     // Login
     logger.log('Logging in...');
     await page.click(selectors.buttons.login);
-    await page.waitForNavigation();
-
-    // Check if login failed
-    const url = await page.url();
-    if (!url.includes('dashboard')) {
+    try {
+        await page.waitForSelector(selectors.indicators.dashboard);
+    } catch (error) {
         logger.error('Login failed. Please check if the username and password are correct.');
         await closeBrowser(browser);
         return;
