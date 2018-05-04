@@ -109,7 +109,7 @@ async function launchBrowser() {
     try {
         return await puppeteer.launch(browserOptions);
     } catch (error) {
-        logger.error('Failed to launch browser. Please check if the executable path is correct or try headless mode.');
+        logger.error('Failed to launch browser. Please check if the executable path is correct or try changing the browser hide option.');
         exit();
     }
 }
