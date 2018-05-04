@@ -89,6 +89,11 @@ There are 2 main ways you can run this script on a schedule:
       * The minimum amount of time in seconds to wait.
     * **max**:
       * The maximum amount of time in seconds to wait.
+  * **typingDelays**:
+    * **enabled**:
+      * Whether or not to type with delays (rather than instantaneously).
+    * **delay**:
+      * Time to wait between key presses in milliseconds.
   * **scheduler**:
     * **expression**:
       * Defines when the bump script should be ran using a cron expression.

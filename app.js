@@ -11,12 +11,17 @@ const maxDelay = config.timings.delays.max * 1000;
 const descriptions = config.bump.descriptions.list;
 
 // Browser options
-const options = {
+var browserOptions = {
     headless: config.browser.hide
 };
 
 if (config.browser.custom.enabled) {
-    options.executablePath = config.browser.custom.path;
+    browserOptions.executablePath = config.browser.custom.path;
+}
+
+var typingOptions = {};
+if (config.timings.typingDelays.enabled) {
+    typingOptions.delay = config.timings.typingDelays.delay;
 }
 
 async function bumpServer() {
@@ -33,8 +38,8 @@ async function bumpServer() {
     // Input username and password
     logger.log('Inputing username and password...');
     await page.goto(urls.base + urls.pages.login);
-    await page.type(selectors.fields.username, config.account.username);
-    await page.type(selectors.fields.password, config.account.password);
+    await page.type(selectors.fields.username, config.account.username, typingOptions);
+    await page.type(selectors.fields.password, config.account.password, typingOptions);
     await delay(page);
 
     // Login
@@ -102,7 +107,7 @@ async function bumpServer() {
 
 async function launchBrowser() {
     try {
-        return await puppeteer.launch(options);
+        return await puppeteer.launch(browserOptions);
     } catch (error) {
         logger.error('Failed to launch browser. Please check if the executable path is correct or try headless mode.');
         exit();
