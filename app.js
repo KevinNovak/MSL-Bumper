@@ -28,11 +28,6 @@ async function bumpServer() {
     // Open browser
     logger.log('Opening browser...');
     const browser = await launchBrowser();
-    browser.on('disconnected', async () => {
-        logger.log('Browser disconnected.');
-        exit();
-    });
-
     const page = await browser.newPage();
 
     // Input username and password
@@ -107,7 +102,12 @@ async function bumpServer() {
 
 async function launchBrowser() {
     try {
-        return await puppeteer.launch(browserOptions);
+        const browser = await puppeteer.launch(browserOptions);
+        browser.on('disconnected', async () => {
+            logger.log('Browser disconnected.');
+            exit();
+        });
+        return browser;
     } catch (error) {
         logger.error('Failed to launch browser. Please check if the executable path is correct or try changing the browser hide option.');
         exit();
