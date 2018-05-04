@@ -86,9 +86,9 @@ There are 2 main ways you can run this script on a schedule:
       * Whether or not this script should wait a random amount of time between actions.
       * Recommended to leave enabled.
     * **min**:
-      * The minimum amount of time in seconds to wait.
+      * Minimum time to wait between actions in seconds.
     * **max**:
-      * The maximum amount of time in seconds to wait.
+      * Maximum time to wait between actions in seconds.
   * **typingDelays**:
     * **enabled**:
       * Whether or not to type with delays (rather than instantaneously).
@@ -107,9 +107,9 @@ There are 2 main ways you can run this script on a schedule:
         * Whether or not to wait a random amount of time after the scheduled time comes.
         * Recommended to leave enabled.
       * **min**:
-        * The minimum amount of time in seconds to wait.
+        * Minimum time to wait after the scheduled time in seconds.
       * **max**:
-        * The maximum amount of time in seconds to wait.
+        * Maximum time to wait after the scheduled time in seconds.
         * ***NOTE***: Should be less than how often the script is running according to the ```cronExpression```.
 
 ## Disclaimer
