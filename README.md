@@ -11,7 +11,8 @@ Running this script will automatically put your server at the top of the [Recent
 
 ## Getting Started
 
-1. [Download the latest release here](https://github.com/KevinNovak/MSL-Bumper/releases/latest).
+1. [Download the latest release here](https://github.com/KevinNovak/MSL-Bumper/releases/latest)
+    * Click one of the ```Source code``` links to download.
 2. Extract the download and navigate to the extracted files.
 3. Install the required packages.
     * Run ```npm install```.
