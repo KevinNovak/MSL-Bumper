@@ -8,19 +8,17 @@ Running this script will automatically put your server at the top of the [Recent
 
 * Node.js
   * [Install files can be found here](https://nodejs.org/en/download/).
-* Git
-  * [Install files can be found here](https://git-scm.com/downloads).
 
 ## Getting Started
 
-1. Clone this repository.
-    * Run ```git clone https://github.com/KevinNovak/MSL-Bumper.git```.
-2. Navigate to the cloned repository and install the required packages.
+1. [Download the latest release here](https://github.com/KevinNovak/MSL-Bumper/releases/latest).
+2. Extract the download and navigate to the extracted files.
+3. Install the required packages.
     * Run ```npm install```.
-3. Modify ```config.json```.
+4. Modify ```config.json```.
     * See the [Configuration](https://github.com/KevinNovak/MSL-Bumper#configuration) section.
     * ***Important***: Remember to modify at least ```username```, ```password```, and ```serverId```.
-4. Start with ```npm start```.
+5. Start with ```npm start```.
 
 ## Running on a Schedule
 
