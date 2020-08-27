@@ -14,5 +14,5 @@ function now() {
 
 module.exports = {
     log,
-    error
+    error,
 };

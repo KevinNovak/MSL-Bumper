@@ -12,7 +12,7 @@ const descriptions = config.bump.descriptions.list;
 
 // Browser options
 var browserOptions = {
-    headless: config.browser.hide
+    headless: config.browser.hide,
 };
 
 if (config.browser.custom.enabled) {
@@ -52,11 +52,13 @@ async function bumpServer() {
 
     // Nagivate to "Edit Server" page
     logger.log('Navigating to "Edit Server" page...');
-    await page.goto(`${urls.base}${urls.pages.edit}?${urls.queries.serverId}=${config.account.serverId}`);
+    await page.goto(
+        `${urls.base}${urls.pages.edit}?${urls.queries.serverId}=${config.account.serverId}`
+    );
 
     // Check if editing is allowed
     const selector = selectors.error;
-    const success = await page.evaluate((selector) => {
+    const success = await page.evaluate(selector => {
         return document.querySelectorAll(selector).length === 0;
     }, selector);
 
@@ -72,15 +74,15 @@ async function bumpServer() {
     if (config.bump.descriptions.enabled) {
         const selector = selectors.fields.description;
         const description = getRandomDescription();
-        await page.evaluate(({
-            selector,
-            description
-        }) => {
-            document.querySelector(selector).value = description;
-        }, {
-            selector,
-            description
-        });
+        await page.evaluate(
+            ({ selector, description }) => {
+                document.querySelector(selector).value = description;
+            },
+            {
+                selector,
+                description,
+            }
+        );
     }
 
     // Bump server
@@ -109,7 +111,9 @@ async function launchBrowser() {
         });
         return browser;
     } catch (error) {
-        logger.error('Failed to launch browser. Please check if the executable path is correct or try changing the browser hide option.');
+        logger.error(
+            'Failed to launch browser. Please check if the executable path is correct or try changing the browser hide option.'
+        );
         exit();
     }
 }
@@ -127,7 +131,7 @@ async function delay(page) {
     if (delaysEnabled) {
         const delay = generateRandomDelay();
         const time = timer.format(timer.getTimeAfterMs(delay));
-        logger.log(`Waiting ${delay/1000} seconds, until "${time}"...`);
+        logger.log(`Waiting ${delay / 1000} seconds, until "${time}"...`);
         await page.waitFor(delay);
     }
 }
@@ -153,5 +157,5 @@ if (!module.parent) {
 }
 
 module.exports = {
-    bumpServer
+    bumpServer,
 };

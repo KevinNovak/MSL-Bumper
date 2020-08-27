@@ -10,5 +10,5 @@ function getTimeAfterMs(delay, date = Date.now()) {
 
 module.exports = {
     format,
-    getTimeAfterMs
+    getTimeAfterMs,
 };
